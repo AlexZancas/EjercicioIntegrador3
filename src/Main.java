@@ -2,7 +2,9 @@
 public class Main {
 	public static void main(String[] args) {
 		Vista vista = new Vista();
+		vista.run();
 		Controlador controlador = new Controlador(vista);
+		controlador.run();
 		int choosenAction = 1;
 		
 		while(choosenAction!=3) {

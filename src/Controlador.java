@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import static java.time.temporal.ChronoUnit.DAYS;
 
-public class Controlador {
+public class Controlador extends Thread{
 	double gananciaBruta;
 	double gananciaNeta;
 	double perdidaProyectada;
@@ -93,5 +93,13 @@ public class Controlador {
 	
 	public void calcDiffDias(Modelo modelo) {
 		this.difDias = DAYS.between(modelo.getFechaElaboracion(), modelo.getFechaVencimiento());
+	}
+	
+	public void run() {
+		this.calcGananciaBruta();
+		this.calcGananciaNeta();
+		this.calcPerdida();
+		System.out.println("** Info actualizada: **");
+		this.vista.showFinancieroInfo(gananciaBruta, gananciaNeta, perdidaProyectada, difDias);
 	}
 }

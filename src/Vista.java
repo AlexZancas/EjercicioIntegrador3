@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class Vista {
+public class Vista extends Thread{
 	public Modelo createModelo() {
 
 		Scanner scanner = new Scanner(System.in);
@@ -60,6 +60,10 @@ public class Vista {
 		modelo.setFechaVencimiento(localDate);
 		
 		return modelo;
+	}
+	
+	public void run() {
+		System.out.println("** La informacion mostrada es confidencial **");
 	}
 	
 	public void showFinancieroInfo(double gananciaBruta, double gananciaNeta, double perdidaProyectada, long difDias) {

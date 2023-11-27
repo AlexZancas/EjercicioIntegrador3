@@ -1,7 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Modelo {
+public class Modelo extends Thread{
 	String detalle;
 	String color;
 	double peso;
